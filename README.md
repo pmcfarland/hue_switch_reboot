@@ -16,14 +16,19 @@ Note, I have santized the script so you will need to plug in your own info.
 
 
 First what you want it to ping:
-    if (-not (Test-Connection '192.168.1.YYY' -Quiet)) {
+
+    `if (-not (Test-Connection '192.168.1.YYY' -Quiet)) {`
     
 Then you will need to set the IP address for your Hue hub:
-    Invoke-WebRequest -UseBasicParsing http://192.168.1.XX/api/
+
+    `Invoke-WebRequest -UseBasicParsing http://192.168.1.XX/api/`
 
 And finally you'll need your API token to be able to complete the request:
-     http://192.168.1.XX/api/<api_token>/lights/11/state
+
+     `http://192.168.1.XX/api/<api_token>/lights/11/state`
      
 I found this guide to be very useful getting started with Hue's API: https://austenclement.com/getting-started-with-the-philips-hue-rest-api/
 
 I have mine set to check ever 5 min (300 seconds) but that is configurable. I wouldn't recomend going much lower though as you're likely hood of getting false netagives(ping failing when it's actually up) increases.
+
+    `Start-Sleep -Seconds 300`
